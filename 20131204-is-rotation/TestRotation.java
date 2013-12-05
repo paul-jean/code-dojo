@@ -14,4 +14,12 @@ public class TestRotation {
         return s.indexOf(sub) >= 0;
     }
 
+    public static void main(String[] args) {
+
+        String s1 = "erbottlewat";
+        String s2 = "waterbottle";
+        System.out.println("s1 = " + s1);
+        System.out.println("s2 = " + s2);
+        System.out.println("isRotation(s1, s2) = " + isRotation(s1, s2));
+    }
 }
