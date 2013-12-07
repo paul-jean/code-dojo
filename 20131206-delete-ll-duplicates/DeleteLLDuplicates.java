@@ -6,14 +6,32 @@ public class DeleteLLDuplicates {
         if (head == null) throw new NullPointerException();
         Node n = head;
         HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-        hm.put(head.data, 1);
+        hm.put(head.getData(), 1);
 
-        while (n.next != null) {
+        while (n.getNext() != null) {
 
-            if (hm.getValue(n.next.data == null)) hm.put(n.next.data, 1);
-            else n.next = n.next.next;
+            if (hm.get(n.getNext().getData()) == null)
+                hm.put(n.getNext().getData(), 1);
+            else
+                n.setNext(n.getNext().getNext());
 
-            n = n.next;
+            n = n.getNext();
         }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.appendToTail(2);
+        head.appendToTail(3);
+        head.appendToTail(2);
+        head.appendToTail(5);
+        System.out.println("Before deleting duplicates:");
+        head.print();
+
+        deleteDuplicates(head);
+
+        System.out.println("After deleting duplicates:");
+        head.print();
+
     }
 }
