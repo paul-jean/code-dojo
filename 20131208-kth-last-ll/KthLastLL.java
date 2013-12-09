@@ -6,14 +6,14 @@ public class KthLastLL {
         Node kthLast = null;
         int count = 0;
 
-        while (n.next != null) {
+        while (n != null) {
             if (count == k - 1) kthLast = head;
             else if (count >= k) kthLast = kthLast.getNext();
             n = n.getNext();
-            count++
+            count++;
         }
 
-        if (count < k) throw new IllegalArgumentException();
+        if (count < k - 1) throw new IllegalArgumentException();
         return kthLast.getData();
     }
 
@@ -23,10 +23,11 @@ public class KthLastLL {
         head.appendToTail(2);
         head.appendToTail(3);
         head.appendToTail(4);
+        head.appendToTail(5);
 
         System.out.println("LL:");
         head.print();
-        System.out.println("2nd last element:");
         int l = kthLastElement(head, 2);
+        System.out.println("2nd last element: " + l);
     }
 }
