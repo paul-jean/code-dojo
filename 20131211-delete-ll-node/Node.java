@@ -1,7 +1,7 @@
 // Node in a singly-linked list
 public class Node {
-    private Node next = null;
-    private int data;
+    public Node next = null;
+    public int data;
 
     public Node(int data) { this.data = data; }
 

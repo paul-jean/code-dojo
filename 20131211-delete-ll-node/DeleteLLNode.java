@@ -1,9 +1,11 @@
 public class DeleteLLNode {
 
+    // Delete the given internal node from a singly linked list.
     public static void deleteNode(Node n) {
-        if (n == null) throw new NullPointerException();
+        if (n == null || n.next == null) throw new NullPointerException();
 
-        n = n.getNext();
+        n.data = n.next.data;
+        n.next = n.next.next;
     }
 
     public static void main(String[] args) {
