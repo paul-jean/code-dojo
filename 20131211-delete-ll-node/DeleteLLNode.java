@@ -1,6 +1,6 @@
 public class DeleteLLNode {
 
-    public void deleteNode(Node n) {
+    public static void deleteNode(Node n) {
         if (n == null) throw new NullPointerException();
 
         n = n.getNext();
