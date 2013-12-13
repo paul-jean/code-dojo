@@ -9,22 +9,24 @@ public class PartitionLL {
 
             if (n.data < x) {
                 if (l == null) {
-                    l = n;
+                    l = new Node(n.data);
                     l_head = l;
                 }
                 else {
-                    l.next = n;
+                    l.next = new Node(n.data);
                     l = l.next;
+                    l.next = null;
                 }
             }
             else {
                 if (g == null) {
-                    g = n;
+                    g = new Node(n.data);
                     g_head = g;
                 }
                 else {
-                    g.next = n;
+                    g.next = new Node(n.data);
                     g = g.next;
+                    g.next = null;
                 }
             }
             n = n.next;
