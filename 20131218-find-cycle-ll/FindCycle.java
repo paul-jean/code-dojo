@@ -6,7 +6,7 @@ public class FindCycle {
         Node t = head;
 
         while (n.next != null) {
-            while (t.next != n) {
+            while (t != n) {
                 if (n.next == t) return t;
                 t = t.next;
             }
