@@ -1,5 +1,5 @@
 public class FindPath {
-    boolean visited;
+    boolean[] visited;
     
     public boolean findPath(Digraph G, int source, int target) {
 
@@ -15,7 +15,7 @@ public class FindPath {
             if (!visited[w]) {
                 visited[w] = true;
                 if (w == target) return true;
-                else return dfs(w);
+                else return dfs(G, w, target);
             }
         }
         return false;
