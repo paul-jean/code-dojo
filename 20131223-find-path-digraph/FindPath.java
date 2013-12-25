@@ -1,13 +1,13 @@
 public class FindPath {
-    boolean[] visited;
+    static boolean[] visited;
     
-    public boolean findPath(Digraph G, int source, int target) {
+    public static boolean findPath(Digraph G, int source, int target) {
 
         visited = new boolean[G.V()];
         return dfs(G, source, target);
     }
 
-    private boolean dfs(Digraph G, int v, int target) {
+    private static boolean dfs(Digraph G, int v, int target) {
 
         visited[v] = true;
         if (v == target) return true;
