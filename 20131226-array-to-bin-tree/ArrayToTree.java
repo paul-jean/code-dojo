@@ -21,11 +21,42 @@ public class ArrayToTree {
         return addToTree(a, 0, a.length - 1);
     }
 
+    private String treeToString(TreeNode root) {
+        int depth = maxDepth(root);
+        int charsPerLine = Math.pow(2, depth);
+        char[][] a = new char[depth][charsPerLine];
+        for (int i = 0; i < depth; i++)
+            for (int j = 0; j < charsPerLine; j++) {
+                if (j == charsPerLine - 1) a[i][j] = "\n";
+                else a[i][j] = " ";
+            }
+        int x = Math.pow(2, depth - 1);
+        printNode(root, 0, x, x, a);
+    }
+
+    private void printNode(TreeNode n, int level, int x, int d, char[][] a) {
+        if (n == null) return null;
+        int node = n.data;
+        a[level][x] = node;
+        xLeft = x - d/2;
+        xRight = x + d/2;
+        printNode(n.left, level + 1, xLeft, d/2, a);
+        printNode(n.right, level + 1, xRight, d/2, a);
+    }
+
+    private int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
+
     public static void main(String[] args) {
         int[] a = new int[10];
         for (int i=0; i < 10; i++) a[i] = i;
         TreeNode t = arrayToTree(a);
         System.out.println("array:");
         for (int i: a) System.out.printf("%d ", i);
+        System.out.println("tree:");
+        String treeString = treeToString(t);
+        System.out.println(treeString);
     }
 }
