@@ -21,30 +21,34 @@ public class ArrayToTree {
         return addToTree(a, 0, a.length - 1);
     }
 
-    private String treeToString(TreeNode root) {
+    private static String treeToString(TreeNode root) {
         int depth = maxDepth(root);
-        int charsPerLine = Math.pow(2, depth);
+        int charsPerLine = (int) Math.pow(2, depth);
         char[][] a = new char[depth][charsPerLine];
         for (int i = 0; i < depth; i++)
             for (int j = 0; j < charsPerLine; j++) {
-                if (j == charsPerLine - 1) a[i][j] = "\n";
-                else a[i][j] = " ";
+                if (j == charsPerLine - 1) a[i][j] = '\n';
+                else a[i][j] = ' ';
             }
-        int x = Math.pow(2, depth - 1);
+        int x = (int) Math.pow(2, depth - 1);
         printNode(root, 0, x, x, a);
+        String s = "";
+        for (int i = 0; i < depth; i++)
+            for (int j = 0; j < charsPerLine; j++) s += a[i][j];
+        return s;
     }
 
-    private void printNode(TreeNode n, int level, int x, int d, char[][] a) {
-        if (n == null) return null;
+    private static void printNode(TreeNode n, int level, int x, int d, char[][] a) {
+        if (n == null) return;
         int node = n.data;
-        a[level][x] = node;
-        xLeft = x - d/2;
-        xRight = x + d/2;
+        a[level][x] = (char) node;
+        int xLeft = x - d/2;
+        int xRight = x + d/2;
         printNode(n.left, level + 1, xLeft, d/2, a);
         printNode(n.right, level + 1, xRight, d/2, a);
     }
 
-    private int maxDepth(TreeNode root) {
+    private static int maxDepth(TreeNode root) {
         if (root == null) return 0;
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
@@ -55,6 +59,9 @@ public class ArrayToTree {
         TreeNode t = arrayToTree(a);
         System.out.println("array:");
         for (int i: a) System.out.printf("%d ", i);
+        System.out.println();
+        int depth = maxDepth(t);
+        System.out.println("depth of tree = " + depth);
         System.out.println("tree:");
         String treeString = treeToString(t);
         System.out.println(treeString);
