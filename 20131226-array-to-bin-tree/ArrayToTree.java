@@ -41,7 +41,7 @@ public class ArrayToTree {
     private static void printNode(TreeNode n, int level, int x, int d, char[][] a) {
         if (n == null) return;
         int node = n.data;
-        a[level][x] = (char) node;
+        a[level][x] = Character.forDigit(node, 10);
         int xLeft = x - d/2;
         int xRight = x + d/2;
         printNode(n.left, level + 1, xLeft, d/2, a);
