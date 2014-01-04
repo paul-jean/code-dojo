@@ -54,8 +54,7 @@ public class ArrayToTree {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[10];
-        for (int i=0; i < 10; i++) a[i] = i;
+        int[] a = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         TreeNode t = arrayToTree(a);
         System.out.println("array:");
         for (int i: a) System.out.printf("%d ", i);
