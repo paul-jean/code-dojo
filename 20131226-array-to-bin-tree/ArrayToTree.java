@@ -23,7 +23,7 @@ public class ArrayToTree {
 
     private static String treeToString(TreeNode root) {
         int depth = maxDepth(root);
-        int charsPerLine = (int) Math.pow(2, depth);
+        int charsPerLine = (int) Math.pow(2, depth + 1);
         char[][] a = new char[depth][charsPerLine];
         for (int i = 0; i < depth; i++)
             for (int j = 0; j < charsPerLine; j++) {
@@ -41,7 +41,13 @@ public class ArrayToTree {
     private static void printNode(TreeNode n, int level, int x, int d, char[][] a) {
         if (n == null) return;
         int node = n.data;
-        a[level][x] = Character.forDigit(node, 10);
+        String chars = Integer.toString(node);
+        char[] charsArray = chars.toCharArray();
+        int place = x;
+        for (char b: charsArray) {
+            a[level][place] = b;
+            place++;
+        }
         int xLeft = x - d/2;
         int xRight = x + d/2;
         printNode(n.left, level + 1, xLeft, d/2, a);
@@ -54,7 +60,7 @@ public class ArrayToTree {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] a = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         TreeNode t = arrayToTree(a);
         System.out.println("array:");
         for (int i: a) System.out.printf("%d ", i);
