@@ -43,7 +43,7 @@ public class TestCheckBST {
         System.out.println();
         System.out.println("Tree:");
         System.out.println(root);
-        assertEquals(true, CheckBST.checkBST(root));
+        assertEquals(false, CheckBST.checkBST(root));
         System.out.println("False");
     }
 }
