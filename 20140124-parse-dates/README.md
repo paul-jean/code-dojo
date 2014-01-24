@@ -1,0 +1,1 @@
+Parse dates from stdin.
