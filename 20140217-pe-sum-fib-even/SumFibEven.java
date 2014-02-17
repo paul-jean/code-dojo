@@ -1,5 +1,5 @@
 public class SumFibEven {
-    private static final int LIMIT = 4000000;
+    private final int LIMIT = 4000000;
     private int[] fibArray;
 
     public SumFibEven() {
@@ -10,7 +10,7 @@ public class SumFibEven {
         if (n == 0) return 1;
         if (n == 1) return 2;
         int f = 0;
-        if (fibArray[n] != null) f = fibArray[n];
+        if (fibArray[n] > 0) f = fibArray[n];
         else {
             f = fib(n - 2) + fib(n - 1);
             fibArray[n] = f;
@@ -18,12 +18,18 @@ public class SumFibEven {
         return f;
     }
 
-    public static void main(String[] args) {
+    public int sumFib() {
         int f = 0, sum = 0, n = 0;
         while (f <= LIMIT) {
             f = fib(n++);
-            sum += f;
+            if (f <= LIMIT) sum += f;
         }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        SumFibEven s = new SumFibEven();
+        int sum = s.sumFib();
         System.out.println(sum);
     }
 }
