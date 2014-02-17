@@ -18,18 +18,18 @@ public class SumFibEven {
         return f;
     }
 
-    public int sumFib() {
+    public int sumFibEven() {
         int f = 0, sum = 0, n = 0;
         while (f <= LIMIT) {
             f = fib(n++);
-            if (f <= LIMIT) sum += f;
+            if (f <= LIMIT && f % 2 == 0) sum += f;
         }
         return sum;
     }
 
     public static void main(String[] args) {
         SumFibEven s = new SumFibEven();
-        int sum = s.sumFib();
+        int sum = s.sumFibEven();
         System.out.println(sum);
     }
 }
