@@ -9,7 +9,8 @@ Listening on port 8001
 Client connected
 ```
 
-Open a socket on that port and the server welcomes you:
+Open a socket on that port and the server gives you instructions.
+Use `shorten` to shorten a url and `go` to retrieve a full url.
 
 ```bash
 [rule146@rule146: 20140321-url-shorten]$ nc 127.0.0.1 8001
