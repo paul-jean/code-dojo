@@ -43,15 +43,6 @@ var insertAtIndex = function(head, insertIndex, insertValue) {
 
 console.log("found val = " + getValue(head, 5));
 
-// skiplist
-//
-
-/*
-{value: 5,
- skips: [[node, 1], [node, 2], ..., [node, 10]]}
-*/
-
-
 
 
 
