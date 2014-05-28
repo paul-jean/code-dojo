@@ -1,22 +1,24 @@
+var closureMemo = function (val) {
+  return {
+    getValue: function() {return val;}
+  };
+};
+
 var fibMemo = {
-  1: {getValue: function() {return 0;}},
-  2: {getValue: function() {return 1;}}
+  1: closureMemo(0),
+  2: closureMemo(1)
 };
 
 var fib = function(n) {
   if (typeof fibMemo[n] === 'object') {
     return fibMemo[n].getValue();
   } else {
-    fibMemo[n] = function(val) {
-      return {
-        getValue: function() { return val; }
-      };
-    }(fib(n - 2) + fib(n - 1));
+    fibMemo[n] = closureMemo(fib(n - 2) + fib(n - 1));
     return fibMemo[n].getValue();
   }
 };
 
-console.log(fib(1));
+// console.log(fib(1));
 // console.log(fibMemo[1].getValue());
 // console.log(typeof fibMemo[1]);
 
