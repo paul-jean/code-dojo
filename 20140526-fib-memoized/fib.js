@@ -3,7 +3,11 @@ var closureMemo = function (val) {
   return {
     getValue: function() {numCalls++; return val;},
     getCalls: function() {
-      return numCalls;
+      var indent = "";
+      for (var i = 0; i < numCalls; i ++) {
+        indent += "-";
+      }
+      return indent;
     }
   };
 };
@@ -15,11 +19,10 @@ var fibMemo = {
 
 var fib = function(n) {
   if (typeof fibMemo[n] === 'object') {
-    console.log(n + ": " + fibMemo[n].getCalls());
+    console.log(fibMemo[n].getCalls() + " " + n);
     return fibMemo[n].getValue();
   } else {
     fibMemo[n] = closureMemo(fib(n - 2) + fib(n - 1));
-    console.log(n + ": " + fibMemo[n].getCalls());
     return fibMemo[n].getValue();
   }
 };
@@ -32,4 +35,4 @@ var util = require('util');
 for (var n = 1; n <= 10; n ++) {
   console.log(util.format("%d\t%d", n, fib(n)));
 }
-console.log(fibMemo);
+// console.log(fibMemo);
