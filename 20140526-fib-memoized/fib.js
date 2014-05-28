@@ -1,6 +1,10 @@
 var closureMemo = function (val) {
+  var numCalls = 0;
   return {
-    getValue: function() {return val;}
+    getValue: function() {numCalls++; return val;},
+    getCalls: function() {
+      return numCalls;
+    }
   };
 };
 
@@ -11,9 +15,11 @@ var fibMemo = {
 
 var fib = function(n) {
   if (typeof fibMemo[n] === 'object') {
+    console.log(n + ": " + fibMemo[n].getCalls());
     return fibMemo[n].getValue();
   } else {
     fibMemo[n] = closureMemo(fib(n - 2) + fib(n - 1));
+    console.log(n + ": " + fibMemo[n].getCalls());
     return fibMemo[n].getValue();
   }
 };
