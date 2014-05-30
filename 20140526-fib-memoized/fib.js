@@ -19,17 +19,17 @@ var indent = function(n) {
   return dashes;
 };
 
-var fibMem = function(n) {
+var fib_mem = function(n) {
   if (typeof numCalls[n] === 'number') {
     numCalls[n] += 1;
   } else {
-    numCalls[n] = 0;
+    numCalls[n] = 1;
   }
   console.log(indent(numCalls[n]) + " " + n);
   if (typeof fibMemo[n] === 'object') {
     return fibMemo[n].getValue();
   } else {
-    fibMemo[n] = closureMemo(fibMem(n - 2) + fibMem(n - 1));
+    fibMemo[n] = closureMemo(fib_mem(n - 2) + fib_mem(n - 1));
     return fibMemo[n].getValue();
   }
 };
@@ -53,7 +53,7 @@ var fib = function(n) {
 var util = require('util');
 console.log("Memoized fib ...");
 for (var n = 1; n <= 10; n ++) {
-  console.log(util.format("%d\t%d", n, fibMem(n)));
+  console.log(util.format("%d\t%d", n, fib_mem(n)));
 }
 console.log(numCalls);
 
