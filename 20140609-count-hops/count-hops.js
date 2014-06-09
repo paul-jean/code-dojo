@@ -5,6 +5,6 @@ var countHops = function(n, m) {
 };
 
 for (var n = 1; n <= 6; n ++) {
-  var c = countHops(n, 1);
+  var c = countHops(n, 0);
   console.log("Hop sequences for " + n + " steps: " + c);
 }
