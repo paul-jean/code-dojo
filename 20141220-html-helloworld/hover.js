@@ -1,5 +1,5 @@
 
-/*var hover = document.getElementsByClassName("hover");
+var hover = document.getElementsByClassName("hover");
 
 var myObj = {
     myField: 1,
@@ -19,13 +19,5 @@ var ChangeColor = function(){
     console.log(myObj.anotherField.nestedField);
 };
 
-hover[0].addEventListener("mouseover", ChangeColor);*/
-
-  document.getElementById('hover').onclick = changeColor;   
-
-    function changeColor() {
-        document.body.style.color = "purple";
-        return false;
-    }
-
+hover[0].onclick = ChangeColor;
 
