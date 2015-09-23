@@ -1,9 +1,14 @@
 ## Fibonacci sequence in JS
 
+Implement a function that returns the nth fibonacci number f(n),
+for integer n = 0, 1, 2 ...
+
+## Run
+
 Run the tests:
 
 ``` bash
-    [rule146@rule146: 20150922-fib-js]$ node fib.js
+    [rule146@rule146: 20150922-fib-js]$ node tests.js
     test: fib
     n = 0, fib(0) = 1, answer: 1, correct? true
     n = 1, fib(1) = 1, answer: 1, correct? true
@@ -14,6 +19,7 @@ Run the tests:
     n = 40, fib(40) = 165580141, answer: 165580141, correct? true
     n = -1, fib(-1) = null, answer: null, correct? true
     tests PASSED
+
     test: fib_mem
     n = 0, fib(0) = 1, answer: 1, correct? true
     n = 1, fib(1) = 1, answer: 1, correct? true
