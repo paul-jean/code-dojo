@@ -1,4 +1,5 @@
 fib = require('./fib.js');
+sprintf = require('sprintf-js').sprintf;
 
 /**
  * Test the given fibonacci function.
@@ -27,7 +28,12 @@ test_fib = function (fib_fn) {
         answer_n = answers[n];
         fib_n = fib_fn(n);
         correct = fib_n === answer_n ? true : false;
-        console.log('n = ' + n + ', fib(' + n + ') = ' + fib_n + ', answer: ' + answer_n + ', correct? ' + correct);
+        console.log(
+            sprintf(
+                'n = %1$d, fib(%1$d) = %2$s, answer: %3$s, correct? %4$s',
+                n, fib_n, answer_n, correct
+            )
+        );
         if (success)
             correct ? null : success = false;
     }

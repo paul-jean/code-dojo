@@ -1,0 +1,25 @@
+{
+  "name": "fib-js",
+  "version": "0.0.0",
+  "description": "fibonacci sequence in node.js",
+  "main": "fib.js",
+  "scripts": {
+    "test": "node tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:paul-jean/code-dojo.git"
+  },
+  "keywords": [
+    "fibonacci"
+  ],
+  "author": "Paul-Jean Letourneau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul-jean/code-dojo/issues"
+  },
+  "homepage": "https://github.com/paul-jean/code-dojo",
+  "dependencies": {
+    "sprintf-js": "^1.0.3"
+  }
+}
