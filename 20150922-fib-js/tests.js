@@ -35,11 +35,11 @@ test_fib = function (fib_fn) {
             )
         );
         if (success)
-            correct ? null : success = false;
+            success = correct ? true : false;
     }
     var pass_fail = success ? 'PASSED' : 'FAILED';
     console.log('tests ' + pass_fail);
-}
+};
 
 // run tests
 console.log('test: fib');

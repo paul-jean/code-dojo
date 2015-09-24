@@ -6,10 +6,10 @@
  */
 exports.fib = function(n) {
     if (n < 0) return null;
-    if (n == 0) return 1;
+    if (n === 0) return 1;
     if (n == 1) return 1;
     return exports.fib(n-1) + exports.fib(n-2);
-}
+};
 
 
 var mem = {0:1, 1:1};
@@ -26,4 +26,4 @@ exports.fib_mem = function(n) {
         mem[n] = exports.fib_mem(n - 1) + exports.fib_mem(n - 2);
     }
     return mem[n];
-}
+};
