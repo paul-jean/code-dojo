@@ -9282,6 +9282,10 @@ var execute = function() {
             result_div.append('<div class="nth_result_mem timeout">' + 'TIMEOUT' + '</div>');
         }
 
+        if (max_time_diff >= max_time_allowed && max_time_diff_mem >= max_time_allowed) {
+            clearInterval(intervalID);
+        }
+
         n++;
     };
     intervalID = setInterval(run_nth, 500);
