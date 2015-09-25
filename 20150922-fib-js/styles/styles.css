@@ -4,13 +4,17 @@
     height: 30px;
     border-radius: 5px;
     background: #f6f6f6;
-    margin: 20px 10px;
+    margin: 20px 20px;
 }
 
 #result {
     clear: both;
     float: left;
     background: #ffffff;
+}
+
+.heading {
+    text-align: center;
 }
 
 .nth_result {
@@ -20,12 +24,27 @@
     opacity: 0.9;
     border-color: grey;
     border: solid 1px;
-    margin: 3px 10px;
-    padding: 0 5px;
-    height: 40px;
+    margin: 3px 20px;
+    padding: 5px 5px;
+    width: 400px;
 }
 
-#result p {
+.nth_result_mem {
+    float: left;
+    background: lightseagreen;
+    opacity: 0.9;
+    border-color: grey;
+    border: solid 1px;
+    margin: 3px 20px;
+    padding: 5px 5px;
+    width: 400px;
+}
+
+.timeout {
+    background-color: lightred;
+}
+
+#result {
     font-family: courier;
     font-size: 14;
 }
