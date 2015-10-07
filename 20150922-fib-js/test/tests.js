@@ -1,4 +1,4 @@
-fib = require('./fib.js');
+fib = require('../js/fib.js');
 sprintf = require('sprintf-js').sprintf;
 
 /**

@@ -11,7 +11,6 @@ exports.fib = function(n) {
     return exports.fib(n-1) + exports.fib(n-2);
 };
 
-
 var mem = {0:1, 1:1};
 /**
  * Compute the nth fibonacci number, using memoization to prevent stack

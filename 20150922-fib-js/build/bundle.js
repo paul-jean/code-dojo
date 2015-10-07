@@ -1,35 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/**
- * Compute the nth fibonacci number.
- * @param {Number} n - the index of fibonacci number to compute
- * @returns {Number | null} - the nth fibonacci number, or null if n < 0
- *
- */
-exports.fib = function(n) {
-    if (n < 0) return null;
-    if (n === 0) return 1;
-    if (n == 1) return 1;
-    return exports.fib(n-1) + exports.fib(n-2);
-};
-
-
-var mem = {0:1, 1:1};
-/**
- * Compute the nth fibonacci number, using memoization to prevent stack
- * overflow.
- * @param {Number} n - the index of fibonacci number to compute
- * @returns {Number | null} - the nth fibonacci number, or null if n < 0
- *
- */
-exports.fib_mem = function(n) {
-    if (n < 0) return null;
-    if (!mem[n]) {
-        mem[n] = exports.fib_mem(n - 1) + exports.fib_mem(n - 2);
-    }
-    return mem[n];
-};
-
-},{}],2:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9241,6 +9210,36 @@ return jQuery;
 
 }));
 
+},{}],2:[function(require,module,exports){
+/**
+ * Compute the nth fibonacci number.
+ * @param {Number} n - the index of fibonacci number to compute
+ * @returns {Number | null} - the nth fibonacci number, or null if n < 0
+ *
+ */
+exports.fib = function(n) {
+    if (n < 0) return null;
+    if (n === 0) return 1;
+    if (n == 1) return 1;
+    return exports.fib(n-1) + exports.fib(n-2);
+};
+
+var mem = {0:1, 1:1};
+/**
+ * Compute the nth fibonacci number, using memoization to prevent stack
+ * overflow.
+ * @param {Number} n - the index of fibonacci number to compute
+ * @returns {Number | null} - the nth fibonacci number, or null if n < 0
+ *
+ */
+exports.fib_mem = function(n) {
+    if (n < 0) return null;
+    if (!mem[n]) {
+        mem[n] = exports.fib_mem(n - 1) + exports.fib_mem(n - 2);
+    }
+    return mem[n];
+};
+
 },{}],3:[function(require,module,exports){
 fib = require('./fib.js');
 $ = require('jquery');
@@ -9304,4 +9303,4 @@ window.onload = function () {
 };
 
 
-},{"./fib.js":1,"jquery":2}]},{},[1,3]);
+},{"./fib.js":2,"jquery":1}]},{},[2,3]);
