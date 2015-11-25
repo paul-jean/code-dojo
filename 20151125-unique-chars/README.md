@@ -11,6 +11,19 @@ What if you cannot use additional data structures?
 - if the char exists in the hash already, this is a repeated char, return false
 - get to end of string with all chars unique, return true
 
+## Time complexity
+
+`O(n)`
+- single iteration through string
+
+## Space complexity
+
+`O(n)`
+- storing a hash table entry for each unique character in string
+- `O(n)` worst case if all chars are unique
+
+## Run
+
 ```bash
 [rule146@rule146: 20151125-unique-chars]$ node unique-chars.js
 : true
@@ -25,10 +38,24 @@ abcdefga: false
 # Alg without additional data structures
 
 ## Implementation without a hash table:
+
 - take ith char in string
 - iterate through string from position i + 1 to look for that char
 - if found, then this char was not unique, return false
 - get to end of string with all chars unique, return true
+
+## Time complexity
+
+`O(n^2)`
+- iterating through string once for each char
+- iterating from `j = i`
+- `sum j`, `j = length - 1` down to `j = 1`  = `(n)(n-1)/2` ~ `O(n^2)`
+
+## Space complexity
+
+`O(1)`
+- only storing a single character to check in outer loop, and single character
+  being compared in the inner loop
 
 ## Tests:
 ```
