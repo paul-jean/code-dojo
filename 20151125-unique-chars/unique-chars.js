@@ -33,10 +33,9 @@ for (var i = 0; i < strings.length; i++) {
 /**
  * Implementation without a hash table.
  * Algorithm:
- * - take first char in string
- * - iterate through string to look for that char
+ * - take ith char in string
+ * - iterate through string from position i + 1 to look for that char
  * - if not found, then this char was unique
- * - keep list of chars already checked, don't check it again if it's there
  *
  */
 var uniqueCharsNoHash = function (s) {
