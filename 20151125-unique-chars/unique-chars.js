@@ -52,33 +52,33 @@ var uniqueCharsNoHash = function (s) {
 
 /*
 abca    i   j   s[i]    s[j]    return
-^       0       a
+@       0       a
  ^          1           b
   ^         2           c
    ^        3           a       false
 
 
 abcd    i   j   s[i]    s[j]    return
-^       0       a
+@       0       a
  ^          1           b
   ^         2           c
    ^        3           d
- ^      1       b
-            2           c
-            3           d
-  ^     2       c
-            3           d
-   ^    3       d
+ @      1       b
+  ^         2           c
+   ^        3           d
+  @     2       c
+   ^        3           d
+   @    3       d
             4           -
                                 true
 
 ''      i   j   s[i]    s[j]    return
-^       0       ''
+@       0       ''
                                 true
 
 a       i   j   s[i]    s[j]    return
-^       0       q
-            1           -
+@       0       q
+ ^          1           -
                                 true
  */
 
