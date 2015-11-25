@@ -32,7 +32,7 @@ abcdefga: false
 
 ## Tests:
 ```
-'abca' ...
+s = 'abca'
 
 abca    i   j   s[i]    s[j]    return
 0123    @   ^
@@ -42,7 +42,7 @@ abca    i   j   s[i]    s[j]    return
   ^         2           c
    ^        3           a       false
 
-'abcd' ...
+s = 'abcd'
 
 abcd    i   j   s[i]    s[j]    return
 0123    @   ^
@@ -60,14 +60,14 @@ abcd    i   j   s[i]    s[j]    return
     ^       4           -
                                 true
 
-'' (empty string) ...
+s = '' (empty string)
 
 ''      i   j   s[i]    s[j]    return
         @   ^
 
 @       0       ''
                                 true
-'a' ...
+s = 'a'
 
 a       i   j   s[i]    s[j]    return
 0       @   ^
