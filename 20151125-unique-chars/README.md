@@ -35,6 +35,8 @@ abcdefga: false
 'abca' ...
 
 abca    i   j   s[i]    s[j]    return
+0123    @   ^
+
 @       0       a
  ^          1           b
   ^         2           c
@@ -43,6 +45,8 @@ abca    i   j   s[i]    s[j]    return
 'abcd' ...
 
 abcd    i   j   s[i]    s[j]    return
+0123    @   ^
+
 @       0       a
  ^          1           b
   ^         2           c
@@ -53,17 +57,21 @@ abcd    i   j   s[i]    s[j]    return
   @     2       c
    ^        3           d
    @    3       d
-            4           -
+    ^       4           -
                                 true
 
 '' (empty string) ...
 
 ''      i   j   s[i]    s[j]    return
+        @   ^
+
 @       0       ''
                                 true
 'a' ...
 
 a       i   j   s[i]    s[j]    return
+0       @   ^
+
 @       0       q
  ^          1           -
                                 true
