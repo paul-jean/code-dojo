@@ -1,80 +1,93 @@
-function LinkedList(dataArray) {
-    if (dataArray.length >= 1) {
-        this.data = dataArray[0];
-        this.next = new LinkedList(dataArray.splice(1));
-        return this;
-    } else {
-        return null;
-    }
+function ListNode(data) {
+    this.data = data;
+    this.next = null;
 }
 
-LinkedList.prototype.toArray = function() {
+ListNode.prototype.appendToTail = function(data) {
+    if (!data) return;
     var current = this;
-    var nodeArray = [];
-    if (!current) return nodeArray;
-    else nodeArray.push(current.data);
+    if (!current) {
+        current = new ListNode(data);
+        return;
+    }
     while (current.next) {
-        nodeArray.push(current.next.data);
         current = current.next;
     }
-    return nodeArray;
+    current.next = new ListNode(data);
+    return;
 }
 
-LinkedList.prototype.hasNode = function(data) {
+ListNode.prototype.appendFromArray = function(dataArray) {
+    for (var d of dataArray)
+        this.appendToTail(d);
+}
+
+ListNode.prototype.hasNode = function(data) {
     var current = this;
+    // {c} -> ...
     if (current.data === data) return true;
+    // ... -> {c} -> {c.n} -> ...
     while (current.next) {
         if (current.next.data === data) return true;
         current = current.next;
     }
+    // ... -> {c} -> ||
     return false;
 }
 
-LinkedList.prototype.deleteNode = function(data) {
-    // {}
-    if (!this) return;
-    // {c} -> {c.n} ...
-    //  x
-    // {c.n} ...
-    if (this.data === data) {
-        this = this.next;
-        return;
-    }
+ListNode.prototype.toString = function() {
+    var nodeData = [];
     var current = this;
-    // {c} -> {c.n} -> {c.n.n} -> ...
-    //          x
-    // {c} ----------> {c.n.n} -> ...
+    if (!current) return '';
+    // {c} -> ...
+    nodeData.push(current.data);
+    // ... -> {c} -> {c.n} -> ...
     while (current.next) {
-        if(current.next.data === data) {
+        nodeData.push(current.next.data);
+        current = current.next;
+    }
+    return nodeData.join(' -> ');
+}
+
+var deleteNode = function(headNode, data) {
+    if (!data) return headNode;
+    // {}
+    if (!headNode) return;
+    // remove the head node
+    // {c} -> {c.n} -> ...
+    //  x
+    //        {c.n} -> ...
+    if (headNode.data === data) {
+        // return rest of list
+        return headNode.next;
+    }
+    var current = headNode;
+    // ... -> {c} -> {c.n} -> {c.n.n} -> ...
+    //                 x
+    // ... -> {c} ----------> {c.n.n} -> ...
+    while (current.next) {
+        if (current.next.data === data) {
             current.next = current.next.next;
-            return;
+            return headNode;
         }
         current = current.next;
     }
+    // .. -> {c} -> ||
+    return headNode;
 }
 
-var t1 = new LinkedList([1, 2, 3]);
-console.log('t1');
-console.log(t1.toArray());
-console.log(t1.hasNode(2));
-/*
-t1.deleteNode(2);
-if (t1.hasNode(2))
-    console.log('t1 failed');
-*/
+var t1 = new ListNode();
+console.log('t1 = ' + t1);
+console.log('has 2: ' + t1.hasNode(2));
+t1.appendFromArray([1, 2, 3, 4]);
+console.log('t1 = ' + t1);
+console.log('has 2: ' + t1.hasNode(2));
+console.log('del 2 ... ');
+t1 = deleteNode(t1, 2);
+console.log('t1 = ' + t1);
+console.log('has 2: ' + t1.hasNode(2));
+console.log('del 1 ... ');
+t1 = deleteNode(t1, 1);
+console.log('t1 = ' + t1);
+console.log('has 1: ' + t1.hasNode(1));
 
-/*
-var t2 = new LinkedList([]);
-t2.deleteNode(2);
-if (t2.hasNode(2))
-    console.log('t2 failed');
-
-var t3 = new LinkedList([1]);
-t3.deleteNode(1);
-if (t3.hasNode(1))
-    console.log('t3 failed');
-
-t3.deleteNode(2);
-if (!t3.hasNode(2))
-    console.log('t4 failed');
-    */
