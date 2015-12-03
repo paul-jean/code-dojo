@@ -88,6 +88,16 @@ c   c.n             {1, 2}
         c   c.n
 */
 
+var t3 = new ListNode(1);
+t3 = listUtils.appendArray(t3, [2, 2]);
+console.log('test 3...');
+console.log(listUtils.toString(t3));
+console.log('dedup ...');
+t3 = deleteListDups(t3);
+console.log(listUtils.toString(t3));
+console.log('length = ' + listUtils.toArray(t3).length);
+console.log('(2)');
+
 /*
 var t2 = new ListNode();
 t2.appendToTail([1, 2, 2]);

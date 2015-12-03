@@ -11,3 +11,27 @@ Write code to remove duplicates from an unsorted linked list.
 - if the hash contains the node data, remove the node
 - otherwise add current.data to the hash, with value true
 - assume there is already a method for removing a node from the list
+
+# Run
+
+```bash
+[rule146@rule146: 20151202-delete-ll-dups]$ node listnode-dedup.js
+test 1 ...
+1 -> 2 -> 3
+dedup ...
+1 -> 2 -> 3
+length = 3
+(3)
+test 2...
+1 -> 2 -> 2
+dedup ...
+1 -> 2
+length = 2
+(2)
+test 3...
+1 -> 2 -> 2
+dedup ...
+1 -> 2
+length = 2
+(2)
+```
