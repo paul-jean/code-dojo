@@ -4,8 +4,8 @@ var deleteDuplicates = function(head) {
     // {1} -> ||
     //  s     s.n
     var slow = head;
-    var fast = slow.next;
-    while(slow.next) {
+    var fast;
+    while (slow.next) {
         fast = slow;
         while (fast.next) {
             if (fast.next.data === slow.data) {

@@ -14,33 +14,18 @@ _without using a temporary buffer_.
 - to remove a node ...
 - fast.next = fast.next.next
 
-- s at node k
-- f = s.next
-- while f
-- if f.data === s.next.data remove f
-- f = f.next
-
-```
- k
-{1} -> {2} -> {3} -> {2} -> ||
- s     s.n
-       f      f.n
-              f      f.n
-                     f      f.n
-       s      s.n
-              f      f.n
-```
 
 ## Single node:
+
+```
+ 0
+{1} -> ||
+ s     s.n
+```
+
 - never delete a node in this case
 - s.next = null
 - while s.next never runs
-```
-0
-{1} -> ||
- s     s.n
-       f
-```
 
 ## Two nodes:
 
@@ -54,12 +39,31 @@ _without using a temporary buffer_.
 ```
 
 - while s.n
-- while f
-- if (f.data === s.data)
+- f = s
+- while f.n
+- if (f.next.data === s.data)
 - f = f.next
 - s = s.next
 
+## > 2 nodes
 
+
+```
+ 0
+{1} -> {2} -> {3} -> {2} -> ||
+ s     s.n
+ f     f.n
+       f      f.n
+              f      f.n
+                     f      f.n
+       s      s.n
+       f      f.n
+              f      f.n
+                      x
+{1} -> {2} -> {3} --------> ||
+              f             f.n
+              s             s.n
+```
 
 
 
