@@ -36,6 +36,8 @@ _without using a temporary buffer_.
  f     f.n
         x
 {1} --------> ||
+              f
+              s
 ```
 
 - while s.n
