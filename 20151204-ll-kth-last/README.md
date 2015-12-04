@@ -54,9 +54,45 @@ faster?
 - `n-k` iterations to get back to kth node from end
 - `n + (n - k) ~ O(n)` independent of `k`
 
+## 3 nodes, 2nd to last
+
 ```
        2nd last
         .
-{0} -> {1} -> {2} -> ||     len     i
- c     c.n
+{0} -> {1} -> {2} -> ||     len     kthFromEnd      i
+ c     c.n                  1
+       c      c.n           2
+              c      c.n    3
+                                    3 - 2 = 1
+ c     c.n                                          0
+       c      c.n                                   1
+       ^
+       return
 ```
+- return node `{1}` (correct)
+
+## 2 nodes, 2nd to last
+
+```
+       2nd last
+        .
+{0} -> {1} -> ||     len     kthFromEnd      i
+ c     c.n           1
+       c      c.n    2
+                             2 - 2 = 0
+ c     c.n                                   0
+ ^
+ return
+```
+- return the head node (correct)
+
+## 1 node, 2nd to last
+
+```
+       2nd last
+        .
+{0} -> ||     len     kthFromEnd      i
+ c     c.n    1
+```
+- `k > n`
+- 1 < 2 is false, return null (correct)
