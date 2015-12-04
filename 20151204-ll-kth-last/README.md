@@ -74,8 +74,8 @@ faster?
 ## 2 nodes, 2nd to last
 
 ```
-       2nd last
-        .
+ 2nd last
+ .
 {0} -> {1} -> ||     len     kthFromEnd      i
  c     c.n           1
        c      c.n    2
@@ -89,10 +89,20 @@ faster?
 ## 1 node, 2nd to last
 
 ```
-       2nd last
-        .
 {0} -> ||     len     kthFromEnd      i
  c     c.n    1
 ```
 - `k > n`
 - 1 < 2 is false, return null (correct)
+
+# Run
+
+```
+[rule146@rule146: 20151204-ll-kth-last]$ node kth-last.js
+1 -> 2 -> 3
+2nd last: 2 (2)
+1 -> 2
+2nd last: 1 (1)
+1
+2nd last: null (null)
+```
