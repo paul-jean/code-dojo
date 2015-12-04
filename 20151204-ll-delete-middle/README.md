@@ -1,6 +1,35 @@
 # Delete middle node from a linked list
 
 (CTCI5 2.3) Implement an algorithm to delete a node from the middle of a singly linked list,
-given only the node to be deleted.
+given only access to the node to be deleted.
 
+# Algorithm
 
+- given the node to be deleted
+- singly linked list means don't have a pointer to the node before it
+
+- del node `{2}`:
+```
+{0} -> {1} -> {2} -> {3} -> ||
+               x
+{0} -> {1} --------> {3} -> ||
+```
+
+- don't have a reference to the head node either, so can't search from the
+beginning for the given node
+- can set a new reference for every node after
+
+```
+{0} -> {1} -> {2} -> {3} -> ||
+               x
+{0} -> {1} --------> {3} -> ||
+
+c = {2}
+c.n = {3}
+
+{0} -> {1} -> {2} -> {3} -> ||
+               c     c.n
+               c = c.n
+{0} -> {1} --------> {3} -> ||
+                     c
+```
