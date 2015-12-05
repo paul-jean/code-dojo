@@ -12,15 +12,13 @@ t1 = ListNodeUtils.appendArray(t1, [1,2,3,4]);
 var nodeObj = {node: t1.next.next};
 
 console.log('test 1 ...');
-console.log(ListNodeUtils.toString(nodeObj.node));
+console.log(ListNodeUtils.toString(t1));
 
-console.log('delete node {2}:');
+console.log('delete node {2} (with a function call):');
 deleteInternalNode(nodeObj);
 
 console.log(ListNodeUtils.toString(nodeObj.node));
 
-/*
 console.log('Delete node {2} directly, without a function call:');
 t1.next.next = t1.next.next.next;
 console.log(ListNodeUtils.toString(t1));
-*/
