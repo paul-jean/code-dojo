@@ -5,21 +5,25 @@ var partitionList = function(head, x) {
     var l = head;
     var g = null;
     var current = head;
+    if (!current.next) return head;
     if (current.data >= x) {
         var n = new ListNode(current.data);
         n.next = g;
         g = n;
-        current = null;
+        l = current.next;
     }
     while(current.next) {
         if (current.next.data >= x) {
+            // add node to greater list
             var n = new ListNode(current.next.data);
             n.next = g;
             g = n;
+            // remove node from lesser list
             current.next = current.next.next;
+        } else {
+            current = current.next;
         }
-        current = current.next;
     }
-    l.next = g;
+    current.next = g;
     return l;
 }
