@@ -7,7 +7,7 @@ head = ListNodeUtils.appendArray(head, [1,2,3,4]);
 console.log('test 1 ...');
 console.log(ListNodeUtils.toString(head));
 
-console.log('delete node {2} (with a function call):');
+console.log('delete node {2}:');
 var node = head.next.next;
 // how to force a call by reference to get a reference to the internal node?
 var deleteInternalNode = function(node) {
