@@ -12,20 +12,16 @@ var node = head.next.next;
 // how to force a call by reference to get a reference to the internal node?
 var deleteInternalNode = function(node) {
     if (!node || !node.next) return null;
-    node = node.next;
+    // {1} -> {2} -> {3} -> {4} -> ||
+    //        n      n.n
+    node.data = node.next.data;
+    // {1} -> {3} -> {3} -> {4} -> ||
+    //        n      n.n    n.n.n
+    node.next = node.next.next;
+    // {1} -> {3} --------> {4} -> ||
+    //        n             n.n
+    // Result:
+    // {1} -> {3} -> {4} -> ||
 }
 deleteInternalNode(node);
-console.log(ListNodeUtils.toString(head));
-
-console.log('delete node {2} (with a function taking a container obj):');
-var deleteInternalNodeFromObjRef = function(nodeObj) {
-    if (!nodeObj.node || !nodeObj.node.next) return null;
-    nodeObj.node = nodeObj.node.next;
-}
-var nodeObj = {node: head.next.next};
-deleteInternalNodeFromObjRef(nodeObj);
-console.log(ListNodeUtils.toString(head));
-
-console.log('Delete node {2} directly, without a function call:');
-head.next.next = head.next.next.next;
 console.log(ListNodeUtils.toString(head));
