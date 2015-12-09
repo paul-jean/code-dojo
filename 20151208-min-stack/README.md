@@ -26,13 +26,17 @@ min:
 - if smaller, repoint the min pointer to the new push'd element
 - if larger, leave the min pointer alone
 
+- when an element is pop'd, if the head is the current min, find a new min
+- change the min pointer to point to the new min node
 
+## example
 ```
 h
 {10} -> {3} -> {4} -> {0} -> ||
                       m
 ```
 
+```
 - push 2:
 - n = new node(2)
 - if 2 < m.d
@@ -42,8 +46,9 @@ h
 - push into empty stack:
 - n = new node(2)
 - m = n
+```
 
-- pop from the list
+## pop from the list
 
 ```
 h
@@ -53,7 +58,7 @@ h
         h             m
 ```
 
-- pop where the head is the min:
+## pop where the head is the min
 ```
 h
 {0} -> {3} -> {4} -> {10} -> ||
@@ -68,7 +73,7 @@ m
 
 ```
 
-- pop where the head is min, new min is an internal node:
+## pop where the head is min, new min is an internal node
 
 ```
 {1} -> {5} -> {3} -> {10} -> ||
@@ -83,6 +88,7 @@ m
 
 ```
 
+```
 c = h
 minval = c.d
 while (c.n) {
@@ -91,4 +97,116 @@ while (c.n) {
     }
     c = c.n
 }
+```
+
+
+## push onto empty stack
+
+```
+h
+||
+
+n
+{1}
+
+n      h
+{1} -> ||
+
+h
+{1} -> ||
+m
+```
+
+## push second value onto stack:
+
+```
+h
+{1} -> ||
+m
+
+n: {2}
+
+n      h
+{2} -> {1} -> ||
+       m
+
+h
+{2} -> {1} -> ||
+       m
+```
+
+## push smaller value onto the stack:
+```
+h
+{2} -> {1} -> ||
+       m
+
+n: {0}
+
+n      h
+{0} -> {2} -> {1} -> ||
+              m
+
+h
+{0} -> {2} -> {1} -> ||
+              m
+
+h
+{0} -> {2} -> {1} -> ||
+m
+```
+
+## pop
+```
+h
+{0} -> {2} -> {1} -> ||     ret
+m                           0
+       h
+       {2} -> {1} -> ||
+       c      c.n
+       m
+              m
+              c      c.n
+       h
+       {2} -> {1} -> ||
+              m
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
