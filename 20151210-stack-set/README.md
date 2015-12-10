@@ -80,6 +80,10 @@ ret = h.d
 h = h.n
 if (!h)
     ha = ha[0..ha.length-1]
+    if (ha.length === 0)
+        len = threshold
+    else
+        len = len - 1
 else
     ha[ha.length-1] = h
 return ret
