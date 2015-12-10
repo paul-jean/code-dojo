@@ -78,3 +78,31 @@ pop():
 
 ```
 
+# Run
+
+```bash
+(StackSet) push: 1 (into NEW stack)
+(StackSet) push: headArray =
+1 - ||
+(StackSet) push: 2
+(StackSet) push: headArray =
+2 - 1 - ||
+(StackSet) push: 3
+(StackSet) push: headArray =
+3 - 2 - 1 - ||
+(len = 3)
+(StackSet) push: 4 (into NEW stack)
+(StackSet) push: headArray =
+3 - 2 - 1 - ||
+4 - ||
+(len = 1)
+(StackSet) pop: num internal stacks = 2
+4
+(StackSet) pop: num internal stacks = 2
+4
+(StackSet) push: 3
+(StackSet) push: headArray =
+3 - 2 - 1 - ||
+3 - 4 - ||
+3
+```
