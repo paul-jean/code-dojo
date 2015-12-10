@@ -81,28 +81,34 @@ pop():
 # Run
 
 ```bash
-(StackSet) push: 1 (into NEW stack)
-(StackSet) push: headArray =
+push 1:
 1 - ||
-(StackSet) push: 2
-(StackSet) push: headArray =
+
+push 2:
 2 - 1 - ||
-(StackSet) push: 3
-(StackSet) push: headArray =
+
+push 3:
 3 - 2 - 1 - ||
+
 (len = 3)
-(StackSet) push: 4 (into NEW stack)
-(StackSet) push: headArray =
+push 4:
 3 - 2 - 1 - ||
 4 - ||
+
 (len = 1)
-(StackSet) pop: num internal stacks = 2
-4
-(StackSet) pop: num internal stacks = 2
-4
-(StackSet) push: 3
-(StackSet) push: headArray =
+pop: 4
 3 - 2 - 1 - ||
-3 - 4 - ||
-3
+
+pop: 3
+2 - 1 - ||
+
+push 3:
+3 - 2 - 1 - ||
+
+pop: 3
+2 - 1 - ||
+
+pop: 2
+pop: 1
+pop: null
 ```
