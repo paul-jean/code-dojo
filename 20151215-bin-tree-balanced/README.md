@@ -32,8 +32,10 @@ _
 ```
 
 ```
-root    rt.l    rt.r    ll  lr
-{0}     n       n       
+isBalanced(root, 0, 0)
+
+root    rt.l    rt.r    ll  lr  ret
+{0}     null    null    0   0   true
 ```
 
 ```
@@ -47,10 +49,18 @@ lenright = 0
 {rt} -> ||
 |
 v
-{rt.l} -> ||
+{1} -> ||
 |
 v
 _
+```
+
+```
+isBalanced(root, 0, 0)
+
+root    rt.l    rt.r    ll  lr  ret
+{0}     {1}     null    0   0
+    {1} null    null    l   0   true
 ```
 
 - left child but no right child
@@ -68,4 +78,44 @@ isbalanced(node, len) {
         return false
     return true
 }
+```
+
+```
+{0} -> ||
+|
+v
+{0L} -> {0LR} -> ||
+|
+v
+_
+```
+
+```
+isBalanced(root, 0, 0)
+
+node            rt.l    rt.r    ll  lr  ret
+{0}             {0L}    null    0   0
+    {0L}        null    {0LR}   1   0
+        {0LR}   null    null    1   1   true
+wrong
+```
+
+- possibly working implementation:
+
+```
+isBalanced(root)
+
+subtreeLength({0}, 0)
+
+node            rt.l    rt.r    len     ll  rl  max(ll,rl)  return
+{0L}            null    {0LR}   0
+    null                        1       1
+    {0LR}       null    null    1
+        null                    2           2   2           2
+
+null                            0           0               0
+
+isBalanced(root)
+node    ll      rl      |ll - rl|   return
+{0}     2       0       2           false
 ```
