@@ -21,8 +21,8 @@ function splitArray(array) {
     if (array.length === 0) return [[], []];
     if (array.length === 1) return [[], array];
     var mid = Math.floor(array.length / 2);
-    var leftArray = array.splice(0, mid);
-    var rightArray = array.splice(mid);
+    var leftArray = array.slice(0, mid);
+    var rightArray = array.slice(mid);
     return [leftArray, rightArray];
 }
 

@@ -82,4 +82,5 @@ function splitArray(array)
     mid = floor(array.length / 2)
     leftarray = array[0 ... mid-1]
     rightarray = array[mid ... -1]
+    return [leftarray, rightarray]
 ```
