@@ -1,3 +1,9 @@
+function Node(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+}
+
 function arrayToBST(array) {
     if (array.length === 0) return null;
     var leftRightArrays = splitArray(array);
@@ -37,7 +43,7 @@ var c = [1,2]
 // [1,2]     1      [1]     [2]
 expect(splitArray(c)).to.be.equal([[1], [2]]);
 
-var arr = [1, 2, 3, 4, 5, 6, 7]
+var arr = [1, 2, 3, 4, 5, 6, 7];
 /*
     arr                 l           node        r
     [1,2,3,4,5,6,7]     [1,2,3]     4           [5,6,7]

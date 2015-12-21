@@ -68,8 +68,14 @@ smaller and larger than it
 ```
 function arrayToBST(array)
     if (!array) return null
-    node = new node()
     [leftarray, rightarray] = splitArray(array)
+    if (rightarray)
+        data = rightarray[0]
+        rightarray = rightarray[1..-1]
+    else
+        data = leftarray[0]
+        leftarray = leftarray[1..-1]
+    node = new node(data)
     node.left = arrayToBST(leftarray)
     node.right = arrayToBST(rightarray)
     return node
