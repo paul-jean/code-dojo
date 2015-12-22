@@ -32,39 +32,35 @@ function splitArray(array) {
     return [leftArray, rightArray];
 }
 
-var a = []
-expect(splitArray(a)).to.be.equal([[], []]);
+function binaryTreeToString(node, level) {
+    str = "\n";
+    for (var i = 0; i < level; i++) str += "    ";
+    if (!node) return "";
+    str += node.data;
+    //str += "---|";
+    str += binaryTreeToString(node.left, level + 1);
+    str += binaryTreeToString(node.right, level + 1);
+    return str;
+}
 
-var b = [1]
-expect(splitArray(b)).to.be.equal([[], [1]]);
-
-var c = [1,2]
-// arr       mid    l       r
-// [1,2]     1      [1]     [2]
-expect(splitArray(c)).to.be.equal([[1], [2]]);
-
-var arr = [1, 2, 3, 4, 5, 6, 7];
 /*
-    arr                 l           node        r
-    [1,2,3,4,5,6,7]     [1,2,3]     4           [5,6,7]
-    [1,2,3]             [1]         2           [3]
-    [5,6,7]             [5]         6           [7]
-    [5]                 []          5           []
-    [7]                 []          7           []
+console.log(splitArray([]));
+console.log(splitArray([1]));
+console.log(splitArray([1,2]));
+console.log(splitArray([1,2,3]));
+console.log(splitArray([1,2,3,4]));
 */
-/*
-    arr                 mid    l        r
-    [1,2,3,4,5,6,7]     3      [1,2,3]  [4,5,6,7]
-    [1,2,3]             1      [1]      [2,3]
-*/
-/*
-arrayToBST([1,2,3,4,5,6,7])
 
-4
-    2
-        1
-        3
-    6
-        5
-        7
-*/
+var tests = [
+    [1],
+    [1,2],
+    [1,2,3],
+    [1,2,3,4,5,6,7],
+    [4, 7, 10, 20, 40, 41, 42, 60, 100, 120]
+];
+
+for (var a of tests) {
+    console.log("----------");
+    console.log(a);
+    console.log(binaryTreeToString(arrayToBST(a), 0));
+}
