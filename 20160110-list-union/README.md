@@ -60,22 +60,18 @@ function numericalCompare(a, b)
     else
         return 1
 
-function binarySearch(list, e)
+function binarySearch(list, e, start, end)
     if list.length === 0
         return false
-    mid = floor(list.length / 2)
+    if start < 0 || end >= list.length || start > end
+        return false
+    mid = floor((start+end) / 2)
     if list[mid] === e
         return true
     if list[mid] < e
-        if mid + 1 >= list.length
-            return false
-        else
-            return binarySearch(list[mid+1 ... -1], e)
+        return binarySearch(list, e, mid+1, end)
     else
-        if mid - 1 < 0
-            return false
-        else
-            return binarySearch(list[0 ... mid -1])
+        return binarySearch(list, e, 0, mid-1)
 ```
 
 ```
@@ -87,12 +83,18 @@ la                          lb
                             [-10, -7, 0, 1, 3, 7, 20, 40]
  ^
 
-binSearch(lb, -10)
-list                            e       mid             list[mid]
-[-10, -7, 0, 1, 3, 7, 20, 40]   -10     fl(8/2) = 4     3
-[-10, -7, 0, 1]                         fl(4/2) = 2     0
-[-10, -7]                               fl(2/2) = 1     -7
-[-10]                                   fl(1/2) = 0     -10
+binSearch(lb, -10, 0, 7)
+
+e: -10
+
+list:
+[-10, -7, 0, 1, 3, 7, 20, 40]
+ 0    1   2  3  4  5  6   7
+
+start   end     mid     list[mid]   =?= e
+0       7       3       1           false
+0       2       1       -7          false
+0       0       0       -10         true
 => true
 ```
 

@@ -12,7 +12,7 @@ function listUnion(l1, l2) {
     lb = lb.sort(numericalCompare);
     var union = [];
     for (var i = 0; i < la.length; i++) {
-        var binS = binarySearch(lb, la[i]);
+        var binS = binarySearch(lb, la[i], 0, lb.length - 1);
         console.log(la[i] + " = " + binS);
         if (binS)
             union.push(la[i]);
@@ -26,18 +26,14 @@ function numericalCompare(a, b) {
     else return 1;
 }
 
-function binarySearch(list, e) {
-    console.log("binarySearch: " + e + " in " + list);
+function binarySearch(list, e, start, end) {
     if (list.length === 0) return false;
-    if (list.length === 1) {
-        if (list[0] === e) return true;
-        else return false;
-    }
-    var mid = Math.floor(list.length / 2);
-    console.log(mid);
+    console.log("bSearch: s = " + start + ", end = " + end);
+    if (start < 0 || end >= list.length || start > end) return false;
+    var mid = Math.floor((start + end) / 2);
     if (list[mid] === e) return true;
-    if (list[mid] < e) return binarySearch(list.slice(mid+1), e);
-    else return binarySearch(list.slice(0, mid), e);
+    if (list[mid] < e) return binarySearch(list, e, mid + 1, end);
+    else return binarySearch(list, e, start, mid - 1);
 }
 
 var l1 = [-10, 5, -20, 1, 6, 9];
