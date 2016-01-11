@@ -78,12 +78,13 @@ function binarySearch(list, e, start, end)
 l1 = [-10, 5, -20, 1, 6, 9]
 l2 = [-7, 0, -10, 1, 7, 3, 20, 40]
 
-la                          lb
+la                          lb                              binSearch(lb, -10, 0, 7)
 [-10, 5, -20, 1, 6, 9]      [-7, 0, -10, 1, 7, 3, 20, 40]
                             [-10, -7, 0, 1, 3, 7, 20, 40]
- ^
+ ^                                                          (1)
+      ^                                                     (2)
 
-binSearch(lb, -10, 0, 7)
+(1) binSearch(lb, -10, 0, 7):
 
 e: -10
 
@@ -96,19 +97,19 @@ start   end     mid     list[mid]   =?= e
 0       2       1       -7          false
 0       0       0       -10         true
 => true
+
+(2) binSearch(lb, 5, 0, 7):
+
+e: 5
+
+list:
+[-10, -7, 0, 1, 3, 7, 20, 40]
+ 0    1   2  3  4  5  6   7
+
+start   end     mid     list[mid]   =?= e
+0       7       3       1           false
+4       7       5       7           false
+4       4       4       3           false
+4       3
+=> false
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
