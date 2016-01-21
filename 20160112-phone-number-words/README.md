@@ -46,13 +46,13 @@ The digits 1 and 0 will not appear in the number.
 ```
 '228'
 
-2: [a, b, c]                            foundWords
-a                               'a'
+2: [a, b, c]                            isWord      foundWords
+a                               'a'                 []
     2: [a, b, c]
     a                           'aa'
         8: [t, u, v]
-        t                       'aat
-        u                       'aau'
+        t                       'aat'   false
+        u                       'aau'   ...
         v                       'aav'
     b                           'ab'
         8: [t, u, v]
@@ -61,9 +61,9 @@ a                               'a'
         v                       'abv'
     c
         8: [t, u, v]
-        t                       'act'   ['act']
-        u                       'acu'
-        v                       'acv'
+        t                       'act'   true        ['act']
+        u                       'acu'   false
+        v                       'acv'   ...
 b
     2: [a, b, c]
     a
@@ -76,11 +76,15 @@ c
     2: [a, b, c]
     a
         8: [t, u, v]
-        t                       'cat'   ['act', 'cat']
-        u
-        v
+        t                       'cat'   ['act', ..., 'cat']
+        u                       'cau'
+        v                       'cav'
     b
+        ...
     c
+        ...
+
+=> [..., 'act', ..., 'cat', ...]
 ```
 
 
